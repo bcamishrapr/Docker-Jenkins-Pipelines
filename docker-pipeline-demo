@@ -1,0 +1,17 @@
+pipeline {
+    agent {
+    docker {
+        image 'maven:3.8.1-adoptopenjdk-11'
+        label 'slave'
+        args  '-v /tmp:/tmp'
+    }
+}
+    stages {
+        stage('Build') {
+            
+            steps {
+                sh 'echo hello'
+            }
+        }
+    }
+}
